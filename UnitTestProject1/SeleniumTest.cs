@@ -32,6 +32,13 @@ namespace SeleniumTest
             Thread.Sleep(3000);
         }
 
+        [Test]
+        public void TestMethod3()
+        {
+            driver.Url = "https://www.news18.com/";
+            Thread.Sleep(3000);
+        }
+        
         [TearDown]
         public void teardown()
         {
