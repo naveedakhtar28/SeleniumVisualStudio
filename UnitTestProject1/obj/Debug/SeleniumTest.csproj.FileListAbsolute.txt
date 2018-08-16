@@ -30,6 +30,5 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\bin\Debug\nunit.framework.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\bin\Debug\WebDriver.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\bin\Debug\WebDriver.Support.xml
-\\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\obj\Debug\SeleniumTest.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 \\Mac\Home\Documents\Visual Studio 2015\Projects\GitRepository\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
