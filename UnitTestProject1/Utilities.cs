@@ -20,13 +20,13 @@ namespace UnitTestProject1
         public IWebDriver driver;
         protected ExtentReports _extent;
         protected ExtentTest _test;
-        string ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
+        
 
         [OneTimeSetUp]
         public void Setup()
         {
-            IWebDriver driver = null;
-
+            IWebDriver driver;
+            var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
             switch (ExecutionBrowser)
             {
                 case "Chrome":
@@ -47,10 +47,7 @@ namespace UnitTestProject1
                     //    driver = new InternetExplorerDriver(@"C:\repos\Testing\Tests");
                     //    break;
             }
-            if (driver != null)
-            {
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
-            }
+            
             //_test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
            
             //var dir = "C:/Reports/";
