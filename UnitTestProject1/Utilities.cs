@@ -69,7 +69,7 @@ namespace UnitTestProject1
             //_extent.AttachReporter(klovReporter);
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void AfterTest()
         {
             driver.Quit();
