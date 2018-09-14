@@ -39,7 +39,7 @@ namespace UnitTestProject1
 
                 case "Firefox":
                     Console.WriteLine("Firefox Browser");
-                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver/geckodriver.exe");
+                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "geckodriver.exe");
                     driver = new FirefoxDriver();
                     driver.Manage().Window.Maximize();
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
