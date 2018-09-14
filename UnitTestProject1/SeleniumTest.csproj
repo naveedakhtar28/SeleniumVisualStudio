@@ -103,8 +103,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="SetUps.cs" />
-    <Compile Include="TestPage.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="SeleniumTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -37,10 +37,10 @@ namespace UnitTestProject1
                     break;
 
                 case "Firefox":
-                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver-v0.21.0-win64/geckodriver.exe");
+                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver/geckodriver.exe");
                     driver = new FirefoxDriver();
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
                     driver.Manage().Window.Maximize();
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
                     break;
 
                     //case Browser.IE:
