@@ -25,8 +25,8 @@ namespace UnitTestProject1
         [OneTimeSetUp]
         public void Setup()
         {
-            IWebDriver driver;
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
+               // var ExecutionBrowser = "Chrome";
             switch (ExecutionBrowser)
             {
                 case "Chrome":
