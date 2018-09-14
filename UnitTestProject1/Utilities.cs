@@ -23,8 +23,36 @@ namespace UnitTestProject1
         string ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
 
         [OneTimeSetUp]
-        protected void Setup()
+        public void Setup()
         {
+            IWebDriver driver = null;
+
+            switch (ExecutionBrowser)
+            {
+                case "Chrome":
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddArguments("start-maximized");
+                    options.AddArguments("--incognito");
+                    driver = new ChromeDriver("C:/chromedriver_win32/", options);
+                    break;
+
+                case "Firefox":
+                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver-v0.21.0-win64/geckodriver.exe");
+                    driver = new FirefoxDriver();
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
+                    driver.Manage().Window.Maximize();
+                    break;
+
+                    //case Browser.IE:
+                    //    driver = new InternetExplorerDriver(@"C:\repos\Testing\Tests");
+                    //    break;
+            }
+            if (driver != null)
+            {
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
+            }
+            //_test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
+           
             //var dir = "C:/Reports/";
             //var fileName = this.GetType().ToString() + ".html";
             //var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
@@ -76,44 +104,45 @@ namespace UnitTestProject1
         {
             //_extent.Flush();
         }
-        
-        [SetUp]
-        public IWebDriver GetWebDriverForBrowser()
-        {
-            IWebDriver driver = null;
 
-            switch (ExecutionBrowser)
-            {
-                case "Chrome":
-                    ChromeOptions options = new ChromeOptions();
-                    options.AddArguments("start-maximized");
-                    options.AddArguments("--incognito");
-                    driver = new ChromeDriver("C:/chromedriver_win32/", options);
-                    break;
+        //[SetUp]
+        //public IWebDriver GetWebDriverForBrowser()
+        //{
+        //    IWebDriver driver = null;
 
-                case "Firefox":
-                    System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver-v0.21.0-win64/geckodriver.exe");
-                    driver = new FirefoxDriver();
-                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
-                    driver.Manage().Window.Maximize();
-                    break;
+        //    switch (ExecutionBrowser)
+        //    {
+        //        case "Chrome":
+        //            ChromeOptions options = new ChromeOptions();
+        //            options.AddArguments("start-maximized");
+        //            options.AddArguments("--incognito");
+        //            driver = new ChromeDriver("C:/chromedriver_win32/", options);
+        //            break;
 
-                    //case Browser.IE:
-                    //    driver = new InternetExplorerDriver(@"C:\repos\Testing\Tests");
-                    //    break;
-            }
-            if (driver != null)
-            {
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
-            }
-            //_test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
-            return driver;
-        }
-        //ChromeOptions options = new ChromeOptions();
-        //options.AddArguments("start-maximized");
-        //options.AddArguments("--incognito");
-        //driver = new ChromeDriver("C:/chromedriver_win32/", options);
-       
-        }
+        //        case "Firefox":
+        //            System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver-v0.21.0-win64/geckodriver.exe");
+        //            driver = new FirefoxDriver();
+        //            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
+        //            driver.Manage().Window.Maximize();
+        //            break;
+
+        //            //case Browser.IE:
+        //            //    driver = new InternetExplorerDriver(@"C:\repos\Testing\Tests");
+        //            //    break;
+        //    }
+        //    if (driver != null)
+        //    {
+        //        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
+        //    }
+        //    //_test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
+        //    return driver;
+        //}
+        ////ChromeOptions options = new ChromeOptions();
+        ////options.AddArguments("start-maximized");
+        ////options.AddArguments("--incognito");
+        ////driver = new ChromeDriver("C:/chromedriver_win32/", options);
+
+        //}
     }
+}
 

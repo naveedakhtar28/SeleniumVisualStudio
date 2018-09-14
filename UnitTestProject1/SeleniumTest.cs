@@ -29,7 +29,6 @@ namespace SeleniumTest
         public void TestMethod3()
         {
             driver.Url = "https://www.news18.com/";
-            driver.FindElement(By.LinkText("CREATE AN ACCOUNT")).Click();
             Thread.Sleep(3000);
         }
 
