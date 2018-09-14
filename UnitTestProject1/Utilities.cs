@@ -37,6 +37,7 @@ namespace UnitTestProject1
                     break;
 
                 case "Firefox":
+                    Console.WriteLine("Firefox Browser");
                     System.Environment.SetEnvironmentVariable("webdriver.gecko.driver", "C:/geckodriver/geckodriver.exe");
                     driver = new FirefoxDriver();
                     driver.Manage().Window.Maximize();
