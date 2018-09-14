@@ -26,6 +26,7 @@ namespace UnitTestProject1
         public void Setup()
         {
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
+            Console.WriteLine("1st Step" + ExecutionBrowser);
                // var ExecutionBrowser = "Chrome";
             switch (ExecutionBrowser)
             {
