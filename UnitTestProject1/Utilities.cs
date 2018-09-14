@@ -33,12 +33,12 @@ namespace UnitTestProject1
             _extent = new ExtentReports();
             htmlReporter.LoadConfig(System.AppDomain.CurrentDomain.BaseDirectory + "extent-config.xml");
             _extent.AttachReporter(htmlReporter);
-            KlovReporter klovReporter = new KlovReporter();
-            klovReporter.InitMongoDbConnection("localhost", 27017);
-            klovReporter.ProjectName = "Selenium Extent Report";
-            klovReporter.ReportName = "Build " + DateTime.Now.ToString();
-            klovReporter.KlovUrl = "http://localhost";
-            _extent.AttachReporter(klovReporter);
+            //KlovReporter klovReporter = new KlovReporter();
+            //klovReporter.InitMongoDbConnection("localhost", 27017);
+            //klovReporter.ProjectName = "Selenium Extent Report";
+            //klovReporter.ReportName = "Build " + DateTime.Now.ToString();
+            //klovReporter.KlovUrl = "http://localhost";
+            //_extent.AttachReporter(klovReporter);
         }
 
         [TearDown]
