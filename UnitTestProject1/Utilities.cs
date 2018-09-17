@@ -24,9 +24,10 @@ namespace UnitTestProject1
         {
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
             var ExecutionEnvironment = System.Environment.GetEnvironmentVariable("Environment");
+
             switch (ExecutionEnvironment)
             {
-                case "DEV":
+                case "Dev":
                     driver.Url = "https://www.cricbuzz.com/";
                     Thread.Sleep(10000);
                     break;
@@ -36,7 +37,7 @@ namespace UnitTestProject1
                     Thread.Sleep(10000);
                     break;
 
-                case "PROD":
+                case "Prod":
                     driver.Url = "https://www.news18.com/cricketnext/?ref=topnav";
                     Thread.Sleep(10000);
                     break;
@@ -58,7 +59,7 @@ namespace UnitTestProject1
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
                     break;
 
-                case "IE":
+                case "Internet Explorer":
                     driver = new InternetExplorerDriver("C:/IEDriverServer/");
                     break;
             }
