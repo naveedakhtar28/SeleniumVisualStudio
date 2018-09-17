@@ -9,6 +9,7 @@ using OpenQA.Selenium.IE;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 namespace UnitTestProject1
 {
@@ -49,14 +50,17 @@ namespace UnitTestProject1
             {
                 case "DEV":
                     driver.Url = "https://www.cricbuzz.com/";
+                    Thread.Sleep(10000);
                     break;
 
                 case "QA":
                     driver.Url = "http://www.espncricinfo.com/";
+                    Thread.Sleep(10000);
                     break;
 
                 case "PROD":
                     driver.Url = "https://www.news18.com/cricketnext/?ref=topnav";
+                    Thread.Sleep(10000);
                     break;
             }
 
