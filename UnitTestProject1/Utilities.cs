@@ -19,12 +19,12 @@ namespace UnitTestProject1
         protected ExtentReports _extent;
         protected ExtentTest _test;
         
-
         [OneTimeSetUp]
         public void Setup()
         {
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
             var ExecutionEnvironment = System.Environment.GetEnvironmentVariable("Environment");
+
             switch (ExecutionBrowser)
             {
                 case "Chrome":
@@ -41,9 +41,9 @@ namespace UnitTestProject1
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);
                     break;
 
-                    case "IE":
-                        driver = new InternetExplorerDriver(@"C:\repos\Testing\Tests");
-                        break;
+                case "IE":
+                    driver = new InternetExplorerDriver("C:/IEDriverServer/");
+                    break;
             }
 
             switch (ExecutionEnvironment)
@@ -64,7 +64,7 @@ namespace UnitTestProject1
                     break;
             }
 
-            _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
+            //_test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
 
             var fileName = this.GetType().ToString() + ".html";
             var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
@@ -81,10 +81,15 @@ namespace UnitTestProject1
             //_extent.AttachReporter(klovReporter);
         }
 
-        [OneTimeTearDown]
+        [SetUp]
+        public void TestSetup()
+        {
+            _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
+        }
+
+        [TearDown]
         public void AfterTest()
         {
-            driver.Quit();
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace)
                     ? ""
@@ -112,9 +117,9 @@ namespace UnitTestProject1
         }
 
         [OneTimeTearDown]
-        protected void TearDown()
+        public void OneTimeTeardown()
         {
-            _extent.Flush();
+            driver.Quit();
         }
         
     }
