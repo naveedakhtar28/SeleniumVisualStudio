@@ -1,9 +1,6 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Threading;
 using UnitTestProject1;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SeleniumTest
 {
