@@ -70,7 +70,7 @@ namespace UnitTestProject1
             var htmlReporter = new ExtentHtmlReporter(fileDirectory + this.GetType().ToString() + ".html");
 
             _extent = new ExtentReports();
-            htmlReporter.LoadConfig(System.AppDomain.CurrentDomain.BaseDirectory + "extent-config.xml");
+            //htmlReporter.LoadConfig(System.AppDomain.CurrentDomain.BaseDirectory + "extent-config.xml");
             _extent.AttachReporter(htmlReporter);
             //KlovReporter klovReporter = new KlovReporter();
             //klovReporter.InitMongoDbConnection("localhost", 27017);
