@@ -65,7 +65,8 @@ namespace UnitTestProject1
             }
 
             var fileName = this.GetType().ToString() + ".html";
-            var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
+            var fileDirectory = "C:/Reports";
+            // var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
             var htmlReporter = new ExtentHtmlReporter(fileDirectory + this.GetType().ToString() + ".html");
 
             _extent = new ExtentReports();
