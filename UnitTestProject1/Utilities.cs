@@ -65,11 +65,12 @@ namespace UnitTestProject1
             }
 
             var fileName = this.GetType().ToString() + ".html";
-            var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
+            var fileDirectory = "C:/Reports/";
+            //var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
             var htmlReporter = new ExtentHtmlReporter(fileDirectory + this.GetType().ToString() + ".html");
 
             _extent = new ExtentReports();
-            htmlReporter.LoadConfig("extent-config.xml");
+            //htmlReporter.LoadConfig("extent-config.xml");
             _extent.AttachReporter(htmlReporter);
             //KlovReporter klovReporter = new KlovReporter();
             //klovReporter.InitMongoDbConnection("localhost", 27017);
