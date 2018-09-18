@@ -16,8 +16,8 @@ namespace UnitTestProject1
     public class Utilities
     {
         public IWebDriver driver;
-        protected ExtentReports _extent;
-        protected ExtentTest _test;
+        //protected ExtentReports _extent;
+        //protected ExtentTest _test;
         
         [OneTimeSetUp]
         public void Setup()
