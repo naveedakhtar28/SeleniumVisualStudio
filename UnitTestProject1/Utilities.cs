@@ -25,24 +25,6 @@ namespace UnitTestProject1
             var ExecutionBrowser = System.Environment.GetEnvironmentVariable("Browser");
             var ExecutionEnvironment = System.Environment.GetEnvironmentVariable("Environment");
 
-            switch (ExecutionEnvironment)
-            {
-                case "Dev":
-                    driver.Url = "https://www.cricbuzz.com/";
-                    Thread.Sleep(10000);
-                    break;
-
-                case "QA":
-                    driver.Url = "http://www.espncricinfo.com/";
-                    Thread.Sleep(10000);
-                    break;
-
-                case "Prod":
-                    driver.Url = "https://www.news18.com/cricketnext/?ref=topnav";
-                    Thread.Sleep(10000);
-                    break;
-            }
-
             switch (ExecutionBrowser)
             {
                 case "Chrome":
@@ -63,7 +45,25 @@ namespace UnitTestProject1
                     driver = new InternetExplorerDriver("C:/IEDriverServer/");
                     break;
             }
-            
+
+            switch (ExecutionEnvironment)
+            {
+                case "Dev":
+                    driver.Url = "https://www.cricbuzz.com/";
+                    Thread.Sleep(10000);
+                    break;
+
+                case "QA":
+                    driver.Url = "http://www.espncricinfo.com/";
+                    Thread.Sleep(10000);
+                    break;
+
+                case "Prod":
+                    driver.Url = "https://www.news18.com/cricketnext/?ref=topnav";
+                    Thread.Sleep(10000);
+                    break;
+            }
+
             var fileName = this.GetType().ToString() + ".html";
             var fileDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Reports\");
             var htmlReporter = new ExtentHtmlReporter(fileDirectory + this.GetType().ToString() + ".html");
